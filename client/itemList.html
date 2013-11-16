@@ -1,0 +1,10 @@
+<template name="itemList">
+  {{#each items}}
+    <div class="row" style="height: 3em;">
+      <div class="span3">{{image}}</div>
+      <div class="span3"><a class="btn btn-block btn-item">{{name}}</a></div>
+      <div class="span3">{{location}}</div>
+      <div class="span3">{{reservations}}</div>
+    </div>
+  {{/each}}
+</template>

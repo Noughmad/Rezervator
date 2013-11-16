@@ -1,0 +1,36 @@
+<head>
+  <title>Rezervator</title>
+</head>
+
+<body>
+  {{> main}}
+</body>
+
+<template name="main">
+  {{> navigation}}
+  <div class="container">
+    {{#if session 'currentItem' }}
+      {{> itemDetail }}
+    {{else}}
+      {{> itemList }}
+    {{/if}}
+  </div>
+</template>
+
+<template name="navigation">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Rezervator</a>
+      <ul class="nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+      <ul class="nav pull-right">
+        <li>
+          {{loginButtons align="right"}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>

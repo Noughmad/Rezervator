@@ -1,0 +1,10 @@
+<template name="itemDetail">
+  {{#with item}}
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a> <span class="divider">/</span></li>
+      <li><a href="/items">Items</a> <span class="divider">/</span></li>
+      <li class="active">{{name}}</li>
+    </ul>
+    Item detail for {{name}}. 
+  {{/with}}
+</template>
