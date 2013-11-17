@@ -1,4 +1,5 @@
 Session.set 'currentItem', null
+Session.set 'rezervationDate', null
 
 Handlebars.registerHelper 'session', (input) -> Session.get(input)
 
@@ -14,12 +15,19 @@ Template.itemList.events
 Template.itemDetail.item = () ->
   Session.get 'currentItem'
   
+Template.rezervationDialogModal.rezervationData = () ->
+  {
+    date: Session.get 'rezervationDate'
+    item: Session.get 'currentItem'
+  }
+  
 Template.itemDetail.rendered = () ->
   console.log @
   console.log $("#calendar")
   $("#calendar").fullCalendar
-    dayClick: () ->
-      console.log "Day has been clicked"
+    dayClick: (date, allDay) ->
+      Session.set 'rezervationDate', date
+      $("#rezervationDialogModal").modal()
     events: (start, end, callback) ->
       rezervations = @Rezervations.find
         item_id: Session.get('currentItem')._id
@@ -27,10 +35,8 @@ Template.itemDetail.rendered = () ->
         start: {$lt: end.getTime() }
       events = []
       rezervations.forEach (event) ->
-        console.log event
         events.push
           title: event.title
           start: event.start / 1000
           end: event.end / 1000
-      console.log events
       callback(events)
