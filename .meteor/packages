@@ -10,7 +10,7 @@ preserve-inputs
 accounts-ui
 coffeescript
 accounts-password
-bootstrap
 fullcalendar
 jquery
-bootstrap-timepicker
+bootstrap-3
+bootstrap-3-timepicker
