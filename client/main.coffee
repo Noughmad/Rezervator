@@ -13,3 +13,8 @@ Template.itemList.events
     
 Template.itemDetail.item = () ->
   Session.get 'currentItem'
+  
+Template.itemDetail.rendered = () ->
+  console.log @
+  console.log $("#calendar")
+  $("#calendar").fullCalendar {}
