@@ -8,8 +8,7 @@
     Item detail for {{name}}. 
   {{/with}}
   
-  <div id="calendar">
-  </div>
+  <div id="calendar" />
   
   <div id="rezervationDialogModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     {{> rezervationDialogModal }}
@@ -22,11 +21,22 @@
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       <h3 id="myModalLabel">Nova rezervacija za {{item.name}}</h3>
     </div>
-    <div class="modal-body">
-      <p>{{date}}</p>
+    <div class="modal-body" style="overflow-y: visible;">
+      <p>
+        <div class="input-append bootstrap-timepicker">
+          <input id="startTimePicker" type="text" class="input-small">
+          <span class="add-on"><i class="icon-time"></i></span>
+        </div>
+      </p>
+      <p>
+        <div class="input-append bootstrap-timepicker">
+          <input id="endTimePicker" type="text" class="input-small">
+          <span class="add-on"><i class="icon-time"></i></span>
+        </div>
+      </p>
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Prekli?i</button>
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Preklici</button>
       <button class="btn btn-primary">Rezerviraj</button>
     </div>
   {{/with}}

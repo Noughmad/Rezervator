@@ -21,10 +21,14 @@ Template.rezervationDialogModal.rezervationData = () ->
     item: Session.get 'currentItem'
   }
   
+Template.rezervationDialogModal.rendered = () ->
+  $("#startTimePicker").timepicker
+    showMeridian: false
+  $("#startTimePicker").timepicker
+    showMeridian: false
+  
 Template.itemDetail.rendered = () ->
-  console.log @
-  console.log $("#calendar")
-  $("#calendar").fullCalendar
+  $("#calendar:empty").fullCalendar
     dayClick: (date, allDay) ->
       Session.set 'rezervationDate', date
       $("#rezervationDialogModal").modal()
