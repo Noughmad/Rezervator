@@ -11,3 +11,5 @@ accounts-ui
 coffeescript
 accounts-password
 bootstrap
+fullcalendar
+jquery
