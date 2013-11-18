@@ -3,8 +3,7 @@
   "dependencies": {
     "basePackages": {
       "fullcalendar": {},
-      "bootstrap-3": {},
-      "bootstrap-3-timepicker": {}
+      "bootstrap-3": {}
     },
     "packages": {
       "fullcalendar": {
@@ -16,11 +15,6 @@
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v0.3.6",
         "commit": "711dbcabe333c8714298b2fd1de97fdcdae6efa7"
-      },
-      "bootstrap-3-timepicker": {
-        "git": "https://github.com/ianserlin/meteor-bootstrap-timepicker.git",
-        "tag": "v0.2.1",
-        "commit": "2dea6a3651fa4621b3281fcaa914564df2026aee"
       },
       "jquery-ui": {
         "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",

@@ -61,6 +61,7 @@ adjustHour = (increment, parent) ->
   while newValue < 0
     newValue = newValue + 24
   input.val newValue
+  updateMainInput(parent)
   
 adjustMinute = (increment, parent) ->
   input = $(parent).find "#dropdown-input-minute"
@@ -73,7 +74,34 @@ adjustMinute = (increment, parent) ->
     newValue = newValue + 60
     adjustHour -1, parent
   input.val newValue
+  updateMainInput(parent)
+  
+updateMainInput = (parent) ->
+  inputId = $(parent).attr('data-maininput')
+  input = $("#" + inputId)
+  hour = $(parent).find("#dropdown-input-hour").val()
+  minute = $(parent).find("#dropdown-input-minute").val()
+  input.val hour + ":" + minute
+  
+updateDropdownInputs = (parent) ->
+  inputId = $(parent).attr('data-maininput')
+  console.log inputId
+  console.log $("#" + inputId).val()
+  values = $("#" + inputId).val().split(':')
+  hour = 0
+  minute = 0
+  switch values.length
+    when 1
+      hour = parseInt(values[0])
+      minute = 0
+    else
+      hour = parseInt(values[0])
+      minute = parseInt(values[1])
 
+  $(parent).find("#dropdown-input-hour").val hour
+  $(parent).find("#dropdown-input-minute").val minute
+  updateMainInput parent
+  
 Template.rezervationDialogModal.events =
   'click .hour-increment': (e) ->
     adjustHour 1, $(e.target).parent().parent()
@@ -90,3 +118,10 @@ Template.rezervationDialogModal.events =
   'click .minute-decrement': (e) ->
     adjustMinute -MinutePrecision, $(e.target).parent().parent()
     false
+
+Template.itemDetail.events = 
+  'keypress #endTimePicker, keypress #startTimePicker' : (e) ->
+    console.log e.target
+    updateDropdownInputs $(e.target).parent()
+    
+  

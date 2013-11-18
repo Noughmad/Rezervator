@@ -1,7 +1,6 @@
 {
   "packages": {
     "fullcalendar": {},
-    "bootstrap-3": {},
-    "bootstrap-3-timepicker": {}
+    "bootstrap-3": {}
   }
 }
