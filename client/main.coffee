@@ -84,10 +84,7 @@ updateMainInput = (parent) ->
   input.val hour + ":" + minute
   
 updateDropdownInputs = (parent) ->
-  inputId = $(parent).attr('data-maininput')
-  console.log inputId
-  console.log $("#" + inputId).val()
-  values = $("#" + inputId).val().split(':')
+  values = $(parent).find('.time-picker-main').val().split(':')
   hour = 0
   minute = 0
   switch values.length
@@ -120,8 +117,7 @@ Template.rezervationDialogModal.events =
     false
 
 Template.itemDetail.events = 
-  'keypress #endTimePicker, keypress #startTimePicker' : (e) ->
-    console.log e.target
-    updateDropdownInputs $(e.target).parent()
+  'keyup #endTimePicker, keyup #startTimePicker' : (e) ->
+    updateDropdownInputs $(e.target).parent().parent()
     
   
